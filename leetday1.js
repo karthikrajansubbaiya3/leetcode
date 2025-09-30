@@ -31,7 +31,7 @@ function findboxes(Array) {
 
 }
 findboxes(boxses) //o(1) constant time no matter how many inputs increase same number of operation
-funchallenge(input)
+//funchallenge(input)
 function funchallenge(input) {
     let a = 10 //o(1)
     a = 50 + 3 //o(1)
@@ -94,7 +94,7 @@ printAllNumbersThenAllPairSums([1, 2, 3, 4, 5])
 //o(n+n*n) we care about most important one (dominant one) here n*2 is the dominant one we can ignore n so that could be o(n^2)
 console.log("hi");
 // o(n!) that we add for loop for every element
-const strings = ['a', 'b', 'c', 'd']
+const strings1 = ['a', 'b', 'c', 'd']
 
 strings.push('e')// it will push element at end of array it can directly to go o(1)
 //pop
@@ -116,6 +116,7 @@ if (object1===object3){
 
 }
 else{
+}
 
 strings.splice(2, 0, 'alien');
 // go tho second index second parameter in case if we want to delete add the element so we do the half of operations so it would be o(n/2) remove the constants 
@@ -135,3 +136,35 @@ else {
 
     console.log("hello");
 }
+//context type
+// context tells you where we are in the object
+// what is the object environment that were in right now 
+//this refers to what object its inside of
+const object4={
+    a:function(){
+        console.log(this)
+    }
+}
+//instatiation
+//instatiation when you make copy of an object and reuse it
+class Player{
+    constructor(name,type){
+        //properties
+        console.log(this);
+        this.name=name;
+        this.type=type;
+    }
+    introduce() {
+        console.log(`hi am ${this.name}, i'm a${this.type}`);
+    }
+}
+class Wizard extends Player{
+    constructor(name,type){
+        super(name,type)
+    }
+    play() {
+        console.log(`weeee i'm a ${this.type}`);
+    }
+}
+const wizard1=new Wizard('shelly','healer');
+wizard1.introduce()
