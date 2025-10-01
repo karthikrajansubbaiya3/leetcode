@@ -161,10 +161,50 @@ class Player{
 class Wizard extends Player{
     constructor(name,type){
         super(name,type)
-    }
+    }l
     play() {
         console.log(`weeee i'm a ${this.type}`);
     }
 }
 const wizard1=new Wizard('shelly','healer');
 wizard1.introduce()
+//implementing array
+class newarray{
+    constructor() {
+        this.length=0;
+        this.data={};
+        
+    }
+    get(index){
+        return this.data[index];
+    }
+push(item){
+    this.data[this.length]=item;
+    this.length++;
+    return this.length;
+}
+delete(index){
+    const item=this.data[index];
+    this.shiftitems(index);
+    
+    return item;
+}
+pop(){
+    delete this.data[this.length-1];
+    this.length--;
+}
+shiftitems(index){
+    for(let i=index;i<this.length;i++){
+        this.data[i]=this.data[i+1];
+    }
+ delete this.data[this.length-1];
+ this.length--;
+}
+}
+const newArray= new newarray
+newArray.push('hi');
+newArray.push('hello');
+newArray.push('are you');
+//newArray.shiftitems(1)
+newArray.delete(0)
+console.log(newArray);
