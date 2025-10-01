@@ -1,7 +1,7 @@
 
 console.log("hi");
 // o(n!) that we add for loop for every element
-const strings=['a','b','c','d']
+const strings = ['a', 'b', 'c', 'd']
 
 
 
@@ -103,19 +103,19 @@ strings.pop() //it will pop last element of the array
 // so the number of element increase so array size also increase
 // splice it will add elemnt atmiddle of thwe array
 
-strings.splice(2,0,'alien');
+strings.splice(2, 0, 'alien');
 // go tho second index second parameter in case if we want to delete add the element so we do the half of operations so it would be o(n/2) remove the constants 
 
 
 
 //refrence type
-var object1={value:1}
-var object2=object1;
-var object3={value:1}
-if (object1===object3){
+var object1 = { value: 1 }
+var object2 = object1;
+var object3 = { value: 1 }
+if (object1 === object3) {
 
 }
-else{
+else {
 }
 
 strings.splice(2, 0, 'alien');
@@ -140,71 +140,123 @@ else {
 // context tells you where we are in the object
 // what is the object environment that were in right now 
 //this refers to what object its inside of
-const object4={
-    a:function(){
+const object4 = {
+    a: function () {
         console.log(this)
     }
 }
 //instatiation
 //instatiation when you make copy of an object and reuse it
-class Player{
-    constructor(name,type){
+class Player {
+    constructor(name, type) {
         //properties
         console.log(this);
-        this.name=name;
-        this.type=type;
+        this.name = name;
+        this.type = type;
     }
     introduce() {
         console.log(`hi am ${this.name}, i'm a${this.type}`);
     }
 }
-class Wizard extends Player{
-    constructor(name,type){
-        super(name,type)
-    }l
+class Wizard extends Player {
+    constructor(name, type) {
+        super(name, type)
+    } l
     play() {
         console.log(`weeee i'm a ${this.type}`);
     }
 }
-const wizard1=new Wizard('shelly','healer');
+const wizard1 = new Wizard('shelly', 'healer');
 wizard1.introduce()
 //implementing array
-class newarray{
+class newarray {
     constructor() {
-        this.length=0;
-        this.data={};
-        
+        this.length = 0;
+        this.data = {};
+
     }
-    get(index){
+    get(index) {
         return this.data[index];
     }
-push(item){
-    this.data[this.length]=item;
-    this.length++;
-    return this.length;
-}
-delete(index){
-    const item=this.data[index];
-    this.shiftitems(index);
-    
-    return item;
-}
-pop(){
-    delete this.data[this.length-1];
-    this.length--;
-}
-shiftitems(index){
-    for(let i=index;i<this.length;i++){
-        this.data[i]=this.data[i+1];
+    push(item) {
+        this.data[this.length] = item;
+        this.length++;
+        return this.length;
     }
- delete this.data[this.length-1];
- this.length--;
+    delete(index) {
+        const item = this.data[index];
+        this.shiftitems(index);
+
+        return item;
+    }
+    pop() {
+        delete this.data[this.length - 1];
+        this.length--;
+    }
+    shiftitems(index) {
+        for (let i = index; i < this.length; i++) {
+            this.data[i] = this.data[i + 1];
+        }
+        delete this.data[this.length - 1];
+        this.length--;
+    }
 }
-}
-const newArray= new newarray
+const newArray = new newarray
 newArray.push('hi');
 newArray.push('hello');
 newArray.push('are you');
 //newArray.shiftitems(1)
 newArray.delete(0)
 console.log(newArray);
+
+//treat any string question into array
+const backwards = [];
+function reverse(str) {
+
+    if (str.length < 2 || typeof str != 'string' || !str)
+        return str
+    for (let i = str.length - 1; i >= 0; i--) {
+
+        backwards.push(str[i]);
+    }
+    return backwards.join('')
+
+}
+console.log(backwards)
+function reverse2(str) {
+    return str.split('').reverse().join('')
+}
+const reverse3 = str => [...str].reverse().join('')
+reverse('Timbits Hi')
+console.log(backwards)
+reverse2('Timbits Hi')
+reverse3('Timbits Hi')
+
+function mergesortedarrays(array1, array2) {
+    let array1item = array1[0];
+    let array2item = array2[0];
+    const mergesortedarray = [];
+    let i = 1;
+    let j = 1;
+    if (array1.length === 0) {
+        return array1;
+    }
+    if (array2.length === 0) {
+        return array2;
+    }
+    while (array1item || array2item) {
+        if (array2item === undefined || array1item < array2item) { //array1item < array2item
+            mergesortedarray.push(array1item)
+            array1item = array1[i];
+            i++;
+        }
+        else {
+            mergesortedarray.push(array2item)
+            array2item = array2[j];
+            j++;
+        }
+
+    }
+    return mergesortedarray;
+}
+console.log(mergesortedarrays([0, 4, 31], [1, 3, 5]));
