@@ -261,36 +261,36 @@ function mergesortedarrays(array1, array2) {
 }
 console.log(mergesortedarrays([0, 4, 31], [1, 3, 5]));
 //twosum array
-function Twosumarray(array1,array2,target){
-    array1.forEach(function(numbers,index){
-array1.forEach(function(secondNumber,index2){
-    let sum=0
-    sum=numbers+secondNumber
-    if (sum===target){
-        //console.log(indexof(numbers),indexof(secondNumber))
-        console.log(index,index2)
+function Twosumarray(array1, array2, target) {
+    array1.forEach(function (numbers, index) {
+        array1.forEach(function (secondNumber, index2) {
+            let sum = 0
+            sum = numbers + secondNumber
+            if (sum === target) {
+                //console.log(indexof(numbers),indexof(secondNumber))
+                console.log(index, index2)
 
-    }
-})
+            }
+        })
     })
 
 }
-const number=[1,2,3,4]
-const number2=[2,5,7,9]
-const target=5
+const number = [1, 2, 3, 4]
+const number2 = [2, 5, 7, 9]
+const target = 5
 //Twosumarray(number,number2,target)
-function twosumarray2(number3,target2){
-    for(let i=0;i<number3.length;i++){
-        for(let j=0;j<number3.length;j++){
-            let sum=0
-            sum=number3[i]+number3[j]
-            if (sum === target2){
-                return number3[i],number3[j]
+function twosumarray2(number3, target2) {
+    for (let i = 0; i < number3.length; i++) {
+        for (let j = 0; j < number3.length; j++) {
+            let sum = 0
+            sum = number3[i] + number3[j]
+            if (sum === target2) {
+                return [number3[i], number3[j]]
             }
         }
     }
 }
-const number3=[1,2,3,4,6]
-const target2=5
-const number4=twosumarray2(number3,target2)
+const number3 = [1, 2, 3, 4, 6]
+const target2 = 5
+const number4 = twosumarray2(number3, target2)
 console.log(number4)
