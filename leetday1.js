@@ -282,9 +282,12 @@ const target = 5
 function twosumarray2(number3, target2) {
     for (let i = 0; i < number3.length; i++) {
         for (let j = 0; j < number3.length; j++) {
-            let sum = 0
+            if(i==j){
+                continue //same item of two array can be add up test case failed add these line
+            }
+            else (sum === target2) {
+                let sum = 0
             sum = number3[i] + number3[j]
-            if (sum === target2) {
                 return [number3[i], number3[j]]
             }
         }
