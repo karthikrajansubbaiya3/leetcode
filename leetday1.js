@@ -300,3 +300,56 @@ const number3 = [1, 2, 3, 4, 6]
 const target2 = 5
 const number4 = twosumarray2(number3, target2)
 console.log(number4)
+//hash tables in javascript objects in python dictionary java has maps ruby has hashes
+// we have to set key value pair
+// it is done through hash function
+// hash function is a simple function that generates values of fixed lenght for each input that it gets
+//that function given an input always output the same output
+//big o(1)
+//hash collision happens it allocates random memory space it allocates same memory to two because of this we can have o(n/k)
+//k is number of elements in hash tabels
+//map and set are prebuilt datastructure
+// map have any of type should be as key
+//set only stores key
+
+class hashtable{
+    constructor(size){
+        this.data=new Array(size);
+    }
+
+_hash(key){
+    let hash=0;
+    for(let i=0;i<key.length;i++)
+    {
+        hash=(hash+key.charCodeAt(i)*i)%this.data.length
+    }
+    return hash
+}
+set(key,value){
+    const address=this._hash(key);
+    if(!this.data[address]){
+        this.data[address]=[];
+    }
+    this.data[address].push([key,value]);
+    return this.data;
+}
+get(key){
+    const address=this._hash(key);
+    const currentbucket=this.data[address]
+    if(currentbucket){
+        for (let i=0;i<currentbucket.length;i++){
+            if(currentbucket[i][0]===key){
+                return currentbucket[i][1];
+            }
+        }
+    }
+}
+}
+
+const myhashtable=new hashtable(50)
+myhashtable.set('grapes',10000);
+const hash=myhashtable.get('grapes');
+console.log(hash)
+//uderscore befor method is telling tat is private property
+//charcode returns an integer 
+
