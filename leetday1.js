@@ -282,18 +282,18 @@ const target = 5
 function twosumarray2(number3, target2) {
     for (let i = 0; i < number3.length; i++) {
         for (let j = 0; j < number3.length; j++) {
-            if(i==j){
+            if (i == j) {
                 continue //same item of two array can be add up test case failed add these line
             }
             else {
-                        let sum = 0
-            sum = number3[i] + number3[j]
-              if  (sum === target2) {
-        
-                return [number3[i], number3[j]]
+                let sum = 0
+                sum = number3[i] + number3[j]
+                if (sum === target2) {
+
+                    return [number3[i], number3[j]]
+                }
             }
         }
-    }
     }
 }
 const number3 = [1, 2, 3, 4, 6]
@@ -312,44 +312,54 @@ console.log(number4)
 // map have any of type should be as key
 //set only stores key
 
-class hashtable{
-    constructor(size){
-        this.data=new Array(size);
+class hashtable {
+    constructor(size) {
+        this.data = new Array(size);
     }
 
-_hash(key){
-    let hash=0;
-    for(let i=0;i<key.length;i++)
-    {
-        hash=(hash+key.charCodeAt(i)*i)%this.data.length
+    _hash(key) {
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) {
+            hash = (hash + key.charCodeAt(i) * i) % this.data.length
+        }
+        return hash
     }
-    return hash
-}
-set(key,value){
-    const address=this._hash(key);
-    if(!this.data[address]){
-        this.data[address]=[];
+    set(key, value) {
+        const address = this._hash(key);
+        if (!this.data[address]) {
+            this.data[address] = [];
+        }
+        this.data[address].push([key, value]);
+        return this.data;
     }
-    this.data[address].push([key,value]);
-    return this.data;
-}
-get(key){
-    const address=this._hash(key);
-    const currentbucket=this.data[address]
-    if(currentbucket){
-        for (let i=0;i<currentbucket.length;i++){
-            if(currentbucket[i][0]===key){
-                return currentbucket[i][1];
+    get(key) {
+        const address = this._hash(key);
+        const currentbucket = this.data[address]
+        if (currentbucket) {
+            for (let i = 0; i < currentbucket.length; i++) {
+                if (currentbucket[i][0] === key) {
+                    return currentbucket[i][1];
+                }
             }
         }
     }
-}
+    keys() {
+        const array = []
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i]) {
+                array.push(this.data[i][0])
+            }
+        }
+        return array;
+    }
 }
 
-const myhashtable=new hashtable(50)
-myhashtable.set('grapes',10000);
-const hash=myhashtable.get('grapes');
-console.log(hash)
+const myhashtable = new hashtable(50)
+myhashtable.set('grapes', 10000);
+const hash = myhashtable.get('grapes');
+const hash2 = myhashtable.keys()
+console.log(hash2)
 //uderscore befor method is telling tat is private property
-//charcode returns an integer 
+//charcode returns an integer
 
+//we put items in shelves retrive them in unordered
