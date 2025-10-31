@@ -59,3 +59,88 @@ def monotonic_array(array):
    return True
 print(monotonic_array([1,2,2,3]))
 print(monotonic_array([9,8,7,6,5,5,5,5,4,3,2,1]))
+# function calling itself untill base condition /terminating condition occurs
+#making the input close to base condition or the terminating condition
+# space complexity is o(n) because each function call is stored in call stack 
+# base condition is important to avoid infinite recursion
+# when to use recursion
+# when problem can be broken into sub problem
+# solve the sub problem and use these solution to construct solution to original problem
+# when we need to explore all possible solution
+# when we need to traverse a tree or graph
+# when we need to backtrack
+# when we need to implement divide and conquer algorithm
+# when we need to implement dynamic programming algorithm
+# when we need to work with recursive data structure like linked list and tree
+# when we need to simplify complex problem
+def factorial(n):
+   # base condition
+   if n==0 or n==1:
+      return 1
+   else:
+      return n*factorial(n-1)
+print(factorial(5))
+# fibonacci series using recursion
+def fibonacci(n):
+   if n==0:
+      return 0
+   elif n==1:
+      return 1
+   else:
+      return fibonacci(n-1)+fibonacci(n-2)
+print(fibonacci(5))  
+# find gcd using recursion
+def gcd(a,b):
+   if b==0:
+      return a
+   else:
+      return gcd(b,a%b)
+print(gcd(48,18))  
+# find power of a number using recursion
+def power(x,n):
+   if n==0:
+      return 1
+   else:
+      return x*power(x,n-1)
+print(power(2,3))
+# find sum of digits using recursion
+def sum_of_digits(n):
+   if n==0:
+      return 0
+   else:
+      return n%10+sum_of_digits(n//10)
+print(sum_of_digits(1234))
+# find reverse of a string using recursion
+def reverse_string(s):
+   if len(s)==0:
+      return s
+   else:
+      return s[-1]+reverse_string(s[:-1])
+print(reverse_string("hello"))
+# find maximum element in an array using recursion
+def max_in_array(array,n):
+   if n==1:
+      return array[0]
+   else:
+      return max(array[n-1],max_in_array(array,n-1))
+print(max_in_array([1,5,3,9,2],5))
+# find minimum element in an array using recursion
+def min_in_array(array,n):
+   if n==1:
+      return array[0]
+   else:
+      return min(array[n-1],min_in_array(array,n-1))
+print(min_in_array([1,5,3,9,2],5))
+# find length of a string using recursion
+def length_of_string(s):
+   if s=="":
+      return 0
+   else:
+      return 1+length_of_string(s[1:])
+   #how to use recursion to solve problems
+   # understand the problem
+   #identify the sub problems
+   #trust/faith
+   #link 1 and link2
+   # base condition
+   
