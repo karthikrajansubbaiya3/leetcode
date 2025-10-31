@@ -32,8 +32,30 @@ def sorted_squaredarray(array):
          j-=1
    return res
   
-
-      
-
-
 print(sorted_squaredarray([-5,-4,-2, 1, 9,12]))
+#if it is monotonic decreasing from left to right or monotonic increasing from left to right
+#space complexity is o(1) no extra space used
+def monotonic_array(array):
+   n=len(array)
+   if n==0:
+      return True
+   first=array[0]
+   last=array[n-1]
+   if first>last:
+      #md or it is no monotonic
+      for k in range(n-1):
+         if array[k]<array[k+1]:
+            return False
+         elif first==last:
+            for k in range(n-1):
+               if array[k]!=array[k+1]:
+                  return False
+   else:
+      #first<last
+      for k in range(n-1):
+         if array[k]>array[k+1]:
+            return False
+   return True
+   
+
+   print(monotonic_array([9,8,7,6,5,5,5,5,4,3,2,1]))
