@@ -332,9 +332,9 @@ class hashtable {
         this.data[address].push([key, value]);
         return this.data;
     }
-    this.data[address].push([key,value]);
-    return this.data;
-}
+    // this.data[address].push([key,value]);
+    // return this.data;
+
  keys() {
     if (!this.data.length) {
       return undefined
