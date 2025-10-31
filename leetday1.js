@@ -333,6 +333,27 @@ set(key,value){
     this.data[address].push([key,value]);
     return this.data;
 }
+ keys() {
+    if (!this.data.length) {
+      return undefined
+    }
+    let result = []
+    // loop through all the elements
+    for (let i = 0; i < this.data.length; i++) {
+        // if it's not an empty memory cell
+        if (this.data[i] && this.data[i].length) {
+          // but also loop through all the potential collisions
+          if (this.data.length > 1) {
+            for (let j = 0; j < this.data[i].length; j++) {
+              result.push(this.data[i][j][0])
+            }
+          } else {
+            result.push(this.data[i][0])
+          } 
+        }
+    }
+    return result; 
+  }
 get(key){
     const address=this._hash(key);
     const currentbucket=this.data[address]
@@ -352,4 +373,38 @@ const hash=myhashtable.get('grapes');
 console.log(hash)
 //uderscore befor method is telling tat is private property
 //charcode returns an integer 
+//most recurring caharacter
+// in this approach o(n^2) time complexity is higher and two same behind comes it will fails for that we need hash]
+// this is naive approach (things comes to mind first)
+function mostrecurringcaharcter(input){
 
+    for (let i=0;i<input.length;i++){
+        for(let j=i+1;j<input.length;j++){
+            if(input[i]===input[j]){
+                return input[i];
+            }
+
+
+        }
+    }
+}
+
+// const mstr=mostrecurringcaharcter([1,2,3,2,5,6,6])
+// console.log(mstr)
+//hash
+function mostrecuuringchar(input){
+    let map={};
+    for(let i=0;i<input.length;i++){
+        if(map[input[i]]!==undefined){
+            return input[i]
+
+        }
+        else{
+            map[input[i]]=i
+        }
+        
+    }
+    return undefined
+}
+const mstr2=mostrecuuringchar([2,5,1,2,3,5,1,2,4])
+console.log(mstr2)
