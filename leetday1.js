@@ -356,13 +356,7 @@ class hashtable {
     }
     return result; 
   }
-get(key){
-    const address=this._hash(key);
-    const currentbucket=this.data[address]
-    if(currentbucket){
-        for (let i=0;i<currentbucket.length;i++){
-            if(currentbucket[i][0]===key){
-                return currentbucket[i][1];
+
 
     get(key) {
         const address = this._hash(key);
