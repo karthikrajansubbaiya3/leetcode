@@ -428,3 +428,16 @@ console.log(mstr2)
 
 //we put items in shelves retrive them in unordered
 
+function twoSum(nums, target) {
+    for(let i=0;i<nums.length;i++){
+    for(let j=i+1;i<nums.length;j++){
+   let sum=0
+   sum=nums[i]+nums[j]
+   if(sum===target){
+    return[i,j];
+   }
+    }
+    }
+}
+
+console.log(twoSum([2,7,11,15], 9))
