@@ -143,4 +143,15 @@ def length_of_string(s):
    #trust/faith
    #link 1 and link2
    # base condition
+   #visualising recursion:recursion tree,recursion call stack
+   #recursion tree 
+   # first f(5)=>it calls f(4)=>f(3)=>f(2)=>f(1)=>it returns 1
+   #recursion call stack lifo priciple it reurns 1 and then 2 and then 6 and then 24 and then 120
+   #iteration vs recursion call stack because of recursion call stack we cannot make ascending or descending phase 
+   #iteration does not space complexity it doesnot have recursiv call stack
+   #ways to write base condition last valid input or first invalid input
+   #recurrence relation 
+   #express the solution of a problem as a function of the solutions to smaller instances of the smaller prob;lem
+   
+
    
