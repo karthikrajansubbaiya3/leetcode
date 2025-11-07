@@ -152,6 +152,17 @@ def length_of_string(s):
    #ways to write base condition last valid input or first invalid input
    #recurrence relation 
    #express the solution of a problem as a function of the solutions to smaller instances of the smaller prob;lem
+   #recurrence relation-you express the big solution as a combination of smaller ones
+   #recursion tree 
+   #lets take example of fibonacci series
+   #firt we have to have so here f(3)=>f(2) and f(1) alson before calling f(1) and f(2) calls recursively f(0) and f(1) and they return after that f(1) called
+   #you can write recursive solution in both ways from o to n and n to o
+   #complexity analysis of recursive solution
+   #t=>[#nodes]*[work done per node]
+   #time complexity of work done at leaf node 
+   #ln*w ln+on+won
+   #space complexity maximum depth of node is space complexity
+   
    
 
    
