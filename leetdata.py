@@ -162,7 +162,12 @@ def length_of_string(s):
    #time complexity of work done at leaf node 
    #ln*w ln+on+won
    #space complexity maximum depth of node is space complexity
-   
-   
+   #kth symbol in grammar
+   #express the solution of a problem as a function of the solution to smaller instances of the same problem
+   #nth row of second half is not of previous row
+   #nth row of first half is same as previous row
+   # 1<=n<=2n-1
+   # k should not be greater than previous condition
+   #
 
    
