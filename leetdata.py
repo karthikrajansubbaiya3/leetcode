@@ -168,6 +168,32 @@ def length_of_string(s):
    #nth row of first half is same as previous row
    # 1<=n<=2n-1
    # k should not be greater than previous condition
-   #
+   #if k<half return(n-1,k)
+   #if k>half return(n-1,k-1)
 
+def Kth_symbol(n,k):
+     len=2**(n-1)
+     mid=len//2
+     if n==1: return 0
+     if k<mid:
+        return(n-1,k)
+     else:
+        return (n-1,k-1)
+     
+print(Kth_symbol(3,0))
+     
+   #when you have something circular consider %(modulo)=>remainder after divison
+
+def findTheWinner(n,k):
+   arr=[i+1 for i in range(n)]
+
+   def helper(arr,start_index):
+      if len(arr)==1:
+         return arr[0]
+   index_to_remove=(start_index+k-1)%len(arr)
+   del arr[index_to_remove]
+   return helper(arr,index_to_remove)
+
+return helper(arr,0)
+   
    
