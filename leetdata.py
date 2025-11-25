@@ -190,10 +190,26 @@ def findTheWinner(n,k):
    def helper(arr,start_index):
       if len(arr)==1:
          return arr[0]
-   index_to_remove=(start_index+k-1)%len(arr)
-   del arr[index_to_remove]
-   return helper(arr,index_to_remove)
+      index_to_remove=(start_index+k-1)%len(arr)
+      del arr[index_to_remove]
+      return helper(arr,index_to_remove)
+   return helper(arr,0)
+#here k-1 because index starts 0
+#jospheus problem circular four people k will be position to be elimanted after that eliminated behind will be started 
+#if it start of same index also works
 
-return helper(arr,0)
+
    
+def winner(n,k):
+   arr=[i+1 for i in range(n)]
+
+   def jospeus(n):
+      if n==1:
+         return 0
+      return(jospeus(n-1)+k)%n
    
+   return jospeus(n)+1
+#it is recursive approach here 
+   
+#solving sub problem of n-1 we can have the result of n 
+# 0 indexed approach so we can have that add 1 at last
