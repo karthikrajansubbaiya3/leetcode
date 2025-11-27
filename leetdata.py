@@ -213,3 +213,17 @@ def winner(n,k):
    
 #solving sub problem of n-1 we can have the result of n 
 # 0 indexed approach so we can have that add 1 at last
+#iterative approach
+def winneriterative(n,k):
+   arr=[i+1 for i in range(n)]
+   survivor=0    
+   for i in range(2,n+1):
+     survivor=(survivor+k) % i
+   return survivor+1
+#the flow of iterative approach is n=1 it will return 0 and then n=2 (0+k)%2=1 then we need add result to survivor
+# like this it is going
+#can solving subproblem help to solve the problem
+
+
+
+
