@@ -163,27 +163,33 @@ def length_of_string(s):
    #ln*w ln+on+won
    #space complexity maximum depth of node is space complexity
    #kth symbol in grammar
+   #if 0 becomes '01' 1 becomes 10
    #express the solution of a problem as a function of the solution to smaller instances of the same problem
    #nth row of second half is not of previous row
    #nth row of first half is same as previous row
    # 1<=n<=2n-1
    # k should not be greater than previous condition
    #if k<half return(n-1,k)
-   #if k>half return(n-1,k-1)
-
+   #if k>half return(n-1,k-mid)
+# for k greater thamn mid would be flipped value
 def Kth_symbol(n,k):
      len=2**(n-1)
      mid=len//2
      if n==1: return 0
-     if k<mid:
-        return(n-1,k)
+     if k<=mid:
+        return Kth_symbol(n-1,k)
      else:
-        return (n-1,k-1)
+        return 1- Kth_symbol(n-1,k-mid)
      
 print(Kth_symbol(3,0))
      
    #when you have something circular consider %(modulo)=>remainder after divison
-
+# something is circular we should have to use modulus 
+#for example k=7 modulus of len(arr) k=7 (0+7-1)%4=6%4=2 like wise it goes untill reach the base condition
+# why we use index to remove should be as start index because we remove the element from array we have to start from 
+# we have to start next to element of removed element
+# it works in case for index of 4 for 4 element array so k=4 the element 3 has to removed next loop starts with 3 instead of 0
+#but it works (3+4-1)%3=0 element the next to removed worked well
 def findTheWinner(n,k):
    arr=[i+1 for i in range(n)]
 
@@ -225,5 +231,20 @@ def winneriterative(n,k):
 #can solving subproblem help to solve the problem
 
 
+def towerofhanoi(n,fromrod,torod,auxrod):
+   count=0
+   def helper(n,fromrod,torod,auxrod):
+      nonlocal count
+      #base case
+      if n==1:
+         print("move disk" + str(n) + "from rod" +str(fromrod)+"   to rod" +str(torod))
+         count+=1
+         return
+      helper(n-1,fromrod ,auxrod,torod)
+      print("move disk" + str(n) + "from rod" +str(fromrod)+"    to rod" +str(torod))
+      count+=1
+      helper(n-1,auxrod,torod,fromrod)
+   helper(n,fromrod,torod,auxrod)
+   return count
 
-
+print(towerofhanoi(3,'a','b','c'))
