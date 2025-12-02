@@ -248,3 +248,23 @@ def towerofhanoi(n,fromrod,torod,auxrod):
    return count
 
 print(towerofhanoi(3,'a','b','c'))
+#time complexity of is this o(2^n) we are moving n-1 disk two times n disk one time 
+# and also recursive call stack o(n) should be space complexity
+#power sum problem
+# for example [1,2,3,4] the array would be like power would be 1
+# for example [1,2,[3,4],[[2]]] for (3+4)^2 number of nested level sum of power
+# time complexity would be 0(n) for the above one is 8
+# time complexity is sum of elements  in array as well as sub array if it is presen or not that would be count
+
+def powersum(array,power=1):
+   sum=0
+   n=len(array)
+   for i in array:
+      if type(i)==list:
+         sum+=powersum(i,power+1)
+      else:
+         sum+=i
+   return sum**power
+
+
+print(powersum([1,2,[3,4],[[2]]]))
