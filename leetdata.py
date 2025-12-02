@@ -268,3 +268,18 @@ def powersum(array,power=1):
 
 
 print(powersum([1,2,[3,4],[[2]]]))
+# back tracking
+# is algorithmic approach to find solutions to problems that involve many possible path
+# solution are built by step by step recursion
+# if a path does not leads to a solution /violates constraint
+# make changes in place (pass by reference)
+# modified the state of the problem in place instead of copied
+# how it is different from recursion
+# controlled recursion + modify state of the problem in place (pass by reference)
+# how does the backtracking works
+# explore one option
+# keep building the solution with recursion
+# violates coditio->backtrack,explore new path
+# brute force generate all possible solution validate the condition it satifies given criteria
+# permutation of abc should be sove in two ways one way is by creating new array each time making new 
+# instead of going in one by one swaping in place bca like we are not creating new memory 
