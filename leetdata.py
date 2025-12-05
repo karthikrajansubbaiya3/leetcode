@@ -290,4 +290,27 @@ print(powersum([1,2,[3,4],[[2]]]))
 # permutation
 # question:given an array nums of distint integers,return all the possible permutation,you can return
 # the answer in any order
+# backtracking for example 1,2,3 permutation
+# for this -,-,- three position 1st position has three posibilities 3
+# for 2nd position has two posibilites 2
+# for 3rd position has one posiblity 1
+# total num of comination is 3! =3*2*1
+# for pseudocode problem
+#swap of j to range(index,n) and swap if it reaches base conditon make copy of it 
+# again swap this is backtracking from the previous position we are able to make new combination
+
+def permute(nums):
+   n=len(nums)
+   res=[]
+   def helper(index):
+      if index==n-1:
+        res.append(nums[:])
+        return 
+      for j in range(index,n):
+         nums[index],nums[j]=nums[j],nums[index]
+         helper(index+1)
+         nums[index],nums[j]=nums[j],nums[index]
+   helper(0)
+   return res
+
 
