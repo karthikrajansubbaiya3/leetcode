@@ -283,3 +283,11 @@ print(powersum([1,2,[3,4],[[2]]]))
 # brute force generate all possible solution validate the condition it satifies given criteria
 # permutation of abc should be sove in two ways one way is by creating new array each time making new 
 # instead of going in one by one swaping in place bca like we are not creating new memory 
+# identify when to use recursion 
+# if a problem requires every possible path 
+# there are multiple solution and you want all of them
+# not for optimization find the largest,smallest,greatest
+# permutation
+# question:given an array nums of distint integers,return all the possible permutation,you can return
+# the answer in any order
+
