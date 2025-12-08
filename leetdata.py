@@ -313,4 +313,28 @@ def permute(nums):
    helper(0)
    return res
 
+# space complexity we donot count answer as part of space complexity o(n)
+# time colexity of this is o(n*n!) 
+# given a collection of numbers,nums,that might contain duplicates return all possible unique permutation
+# in any order
+# here the approach is unique elements to be in (1,1,2)
+# i=0 j=0 elements to be pushed swapping of (0,0),(0,1) and i=1 and j=1 here repetiton occurs 
+# here we are implementing hash table to stop the repetition
+# i=0 here already hash tabels have 1 if the hash tabels contains same value we prune this way
 
+def permuteUnique(nums):
+   res=[]
+   def helper(i):
+      if i==len(nums-1):
+         res.append(nums[:])
+         return
+   hash={}
+   for j in range(i,len(nums)):
+       if nums[j] not in hash:
+          hash[nums[j]]=True
+          nums[i],nums[j]=nums[j],nums[i]
+          helper(i+1)
+          nums[i],nums[j]=nums[j],nums[i]
+
+   helper(0)
+   return res
