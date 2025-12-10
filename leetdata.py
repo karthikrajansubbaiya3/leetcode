@@ -338,3 +338,43 @@ def permuteUnique(nums):
 
    helper(0)
    return res
+# give an integer array of unique elements,return all possible subsets (the power set) the solution set
+# must not contain duplicate subset return the solution in any order
+# backtracking approach
+# function helper()
+#{
+#if solved 
+# save the solution
+# print
+# return
+# for choice in choices
+#{
+# if isvalid(choice)
+#{
+# choose()
+# helper
+# revert choice
+
+#}
+
+#}
+# if i=lenght,push
+# to reults
+# helper(i+1),nums,subset->exclude
+# push to subset nums,subset ->include
+# helper(i+1),nums,subset -> include
+# pop from subset ->backtracking
+
+def power_set(nums):
+   output=[]
+   def helper(nums,i,subset):
+      if i==len(nums):
+         output.append(nums[:])
+         return
+      helper(nums,i+1,subset)
+      subset.append(nums[i])
+      subset.pop()
+   helper(nums,0,[])
+   return output
+
+
