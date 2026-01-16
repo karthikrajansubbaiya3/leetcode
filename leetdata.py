@@ -378,3 +378,37 @@ def power_set(nums):
    return output
 
 
+# here the intitutive is for [1,8,7] either 1 to be include nor exclude like this for all numbers in array
+# result will be subset of [1,8,7] 2*n combination each has two position one to be included or excluded
+# 2*2*2
+# time complexit of this o(n*2*n)
+# space complexity of this o(n) due to recursive call stack
+#
+def subsetsWithDup(nums):
+    nums.sort()
+    res = []
+
+    def helper(i, curr):
+        # ✅ correct base case
+        if i == len(nums):
+            res.append(curr[:])
+            return
+
+        # include
+        curr.append(nums[i])
+        helper(i + 1, curr)
+        curr.pop()
+
+        # exclude (skip duplicates)
+        while i < len(nums) - 1 and nums[i] == nums[i + 1]:
+            i += 1
+        helper(i + 1, curr)
+
+    helper(0, [])
+    return res
+
+
+print(subsetsWithDup([1, 3, 3, 7]))
+
+# in this approach first we have to arrange in ascending order and then in exclude we have to increment the 
+# element for non repetitive solution
