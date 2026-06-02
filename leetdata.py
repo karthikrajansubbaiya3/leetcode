@@ -389,7 +389,7 @@ def subsetsWithDup(nums):
     res = []
 
     def helper(i, curr):
-        # ✅ correct base case
+        # correct base case
         if i == len(nums):
             res.append(curr[:])
             return
@@ -412,3 +412,11 @@ print(subsetsWithDup([1, 3, 3, 7]))
 
 # in this approach first we have to arrange in ascending order and then in exclude we have to increment the 
 # element for non repetitive solution
+#nck combination nc2
+# n!/k!(n-k)! 
+# brute force find all posiible combination
+# when ever trying to search one number or two number there is a possibilty of searching can help
+# asci ord of a is 97
+
+
+

@@ -21,3 +21,29 @@
  # parameter models internal setting like ai synapes "more parameter often mean a bigger brain for processing
  # traning data-llms learn form tokenized text and images llama model train on billion of tokens diverse source
  # capabilites - answer question,converse,write content,translate language summarize and assit with coding
+# python
+#
+
+<!-- 
+database design process
+what kind of thing are we storing?
+what properties does thing have?
+what type of data doeseach of those properties contain? -->
+<!-- common features (like authenticatio,comments) are frequent built with conventional table names and columns
+what type of resource exist in your app?create a seprate table for each of these features?
+features that seem to indicate a relationship or ownership between two types of resource need to be  reflected in our table design?
+ one to many or many to one
+ a school has many student
+ a student has one school
+ one to one/many to many
+ one country has one capitol
+ engineers has many task
+ task has many engineer
+ primary key-uniquely identifies this record in this table
+ foreign key-identifies a record (ususally in another table )that this row is associated with
+ the many side of the relation ship gets the foreign key column
+
+ row only have this if they belong to anoher record
+ many rows in the same table can have the same foreign key 
+ exactly equal to the primary key of the reference row
+ will change if the relationship changes -->
